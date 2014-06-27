@@ -15,3 +15,7 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+Route::resource('bodega','BodegaController');
+Route::resource('producto','ProductoController');
+
+?>
