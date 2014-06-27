@@ -12,8 +12,7 @@
 	@endforeach
 </ul>
 
-{{$prod->FK_Bodega}}
-{{$id}}
+
 <form action="/producto/create2/{{$id}}">
     <input type="submit" value="AGREGAR NUEVO PRODUCTO">
 </form>

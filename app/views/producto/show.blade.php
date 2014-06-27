@@ -9,8 +9,13 @@
 <h2>Nombre del Producto: {{ $producto->Nombre_Producto }}</h2>
 <p>Código del Producto: {{ $producto->Codigo_Producto }}</p>
 <p>Precio Neto del Producto: {{ $producto->Precio_Neto }}</p>
-<p>Disponible en Bodega equis</p>
+<p>Disponible en Bodega {{ $bodega->Nombre_Bodega }}</p>
+
+<form action="/bodega/productosbodega/{{ $bodega->Id }}">
+	<input type="submit" value="PRODUCTOS EN BODEGA">
+</form> </br>
+
 <form action="/producto">
-    <input type="submit" value="VOLVER A PÁGINA INICIAL DE PRODUCTOS">
+    <input type="submit" value="PÁGINA INICIAL DE PRODUCTOS">
 </form>
 @stop

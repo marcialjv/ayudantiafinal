@@ -37,12 +37,20 @@ class ProductoController extends \BaseController {
 	public function store()
 	{
 		$producto = new Producto;
-		$producto->FK_Bodega_Id = Input::get('FK_Bodega_Id');
-		$producto->Nombre_Producto = Input::get('Nombre_Producto');
-		$producto->Codigo_Producto = Input::get('Codigo_Producto');
-		$producto->Precio_Neto = Input::get('Precio_Neto');
-		$producto->save();
-		return Redirect::to('producto');
+		$id=Input::get('FK_Bodega_Id');
+		$resultado = Bodega::where('Id', '=', $id)->get();
+		if (count($resultado)>0) {
+			$producto->FK_Bodega_Id = $id;
+			$producto->Nombre_Producto = Input::get('Nombre_Producto');
+			$producto->Codigo_Producto = Input::get('Codigo_Producto');
+			$producto->Precio_Neto = Input::get('Precio_Neto');
+			$producto->save();
+			$resultado = Producto::where('FK_Bodega_Id', '=', $id)->get();
+			return View::make('producto.index2')->with('producto',$resultado)->with('id',$id);
+		}
+		return View::make('bodega.vacio')->with('id',$id);
+
+		
 	}
 
 
@@ -55,7 +63,8 @@ class ProductoController extends \BaseController {
 	public function show($id)
 	{
 		$producto = Producto::find($id);
-		return View::make('producto.show')->with('producto',$producto);
+		$bodega = Bodega::find($producto->FK_Bodega_Id);
+		return View::make('producto.show')->with('producto',$producto)->with('bodega',$bodega);
 	}
 
 

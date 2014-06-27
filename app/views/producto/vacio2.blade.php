@@ -1,8 +1,7 @@
 @extends ('wellcome')
 
 @section('contenido')
-<h2>HO HAY PRODUCTOS QUE MOSTRAR</h2>
-{{$id}}
+<h2>NO HAY PRODUCTOS QUE MOSTRAR</h2>
 <form action="/producto/create2/{{$id}}">
     <input type="submit" value="AGREGAR NUEVO PRODUCTO">
 </form>
