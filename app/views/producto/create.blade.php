@@ -11,6 +11,6 @@
   {{ Form::submit('GUARDAR') }}
 {{ Form::close() }}
 <form action="/producto">
-    <input type="submit" value="VOLVER">
+    <input type="submit" value="VOLVER A PRODUCTOS">
 </form>
 @stop

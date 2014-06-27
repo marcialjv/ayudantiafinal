@@ -12,7 +12,7 @@ class BodegaController extends \BaseController {
 		$bodega = Bodega::all();
 		return View::make('bodega.index')->with('bodega',$bodega);
 	}
-	}
+	
 
 
 	/**
@@ -22,7 +22,7 @@ class BodegaController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('bodega.create');
 	}
 
 
@@ -33,7 +33,11 @@ class BodegaController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$bodega = new Bodega;
+		$bodega->Nombre_Bodega = Input::get('Nombre_Bodega');
+		$bodega->Codigo_Bodega = Input::get('Codigo_Bodega');
+		$bodega->save();
+		return Redirect::to('bodega');
 	}
 
 
@@ -45,7 +49,8 @@ class BodegaController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$bodega = Bodega::find($id);
+		return View::make('bodega.show')->with('bodega',$bodega);
 	}
 
 
@@ -57,7 +62,8 @@ class BodegaController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$bodega = Bodega::find($id);
+		return View::make('bodega.edit')->with('bodega',$bodega);
 	}
 
 
@@ -69,7 +75,12 @@ class BodegaController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$bodega = Bodega::find($id);
+		$bodega->Nombre_Bodega = $input['Nombre_Bodega'];
+		$bodega->Codigo_Bodega = $input['Codigo_Bodega'];
+		$bodega->save();
+		return Redirect::to('bodega/' . $id);
 	}
 
 
@@ -81,7 +92,9 @@ class BodegaController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$bodega = Bodega::find($id);
+		$bodega->delete();
+		return Redirect::to('bodega');
 	}
 
 

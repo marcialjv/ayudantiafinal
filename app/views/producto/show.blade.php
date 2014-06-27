@@ -6,7 +6,7 @@
 {{ Form::open(array('url'=>'producto/'. $producto->Id, 'method' => 'delete')) }}
 {{ Form::submit('ELIMINAR') }}
 {{ Form::close() }}
-<h2>nombre del Producto: {{ $producto->Nombre_Producto }}</h2>
+<h2>Nombre del Producto: {{ $producto->Nombre_Producto }}</h2>
 <p>Código del Producto: {{ $producto->Codigo_Producto }}</p>
 <p>Precio Neto del Producto: {{ $producto->Precio_Neto }}</p>
 <p>Disponible en Bodega equis</p>
