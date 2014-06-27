@@ -1,7 +1,7 @@
 @extends('wellcome')
 @section('contenido') 
 {{ Form::open(array('url' => 'producto')) }}
-  {{ Form::text('FK_Bodega_Id') }}</br>
+  {{ Form::text('FK_Bodega_Id', $id, array('readonly' => 'readonly')) }}</br>
   <p>ingrese nombre del Producto:</p>
   {{ Form::text('Nombre_Producto') }}</br>
   <p>ingrese el Código del Producto:</p>

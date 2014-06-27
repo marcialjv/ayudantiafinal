@@ -23,6 +23,10 @@ class ProductoController extends \BaseController {
 	{
 		return View::make('producto.create');
 	}
+	public function create2($id)
+	{
+		return View::make('producto.create2')->with('id',$id);
+	}
 
 
 	/**

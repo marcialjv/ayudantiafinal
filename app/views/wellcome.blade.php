@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>INICIO</title>
+	<title>TAREA 4</title>
 </head>
 <body>
 @yield('contenido')

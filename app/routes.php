@@ -11,11 +11,17 @@
 |
 */
 
-Route::get('/', function()
+/*Route::get('/', function()
 {
 	return View::make('hello');
 });
+*/
+Route::resource('','BodegaController');
 Route::resource('bodega','BodegaController');
 Route::resource('producto','ProductoController');
+Route::get('verproductos', 'BodegaController@verproductos');
+Route::get('bodega/productosbodega/{id}', 'BodegaController@productosbodega');
+Route::get('producto/create2/{id}', 'ProductoController@create2');
+
 
 ?>

@@ -10,6 +10,7 @@ class BodegaController extends \BaseController {
 	public function index()
 	{
 		$bodega = Bodega::all();
+		
 		return View::make('bodega.index')->with('bodega',$bodega);
 	}
 	
@@ -81,6 +82,23 @@ class BodegaController extends \BaseController {
 		$bodega->Codigo_Bodega = $input['Codigo_Bodega'];
 		$bodega->save();
 		return Redirect::to('bodega/' . $id);
+	}
+
+	public function verproductos()
+	{
+		return Redirect::to('producto');
+	}
+
+	public function productosbodega($id)
+	{
+
+		$resultado = Producto::where('FK_Bodega_Id', '=', $id)->get();
+		if (count($resultado)>0) {
+			return View::make('producto.index2')->with('producto',$resultado)->with('id',$id);
+		}
+			return View::make('producto.vacio2')->with('id',$id);
+		
+
 	}
 
 
