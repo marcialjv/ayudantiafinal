@@ -139,42 +139,55 @@ ALTER TABLE ONLY "Producto" ALTER COLUMN "Id" SET DEFAULT nextval('"Producto_Id_
 -- Data for Name: Bodega; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-INSERT INTO "Bodega" VALUES (1, 'puente asalto', '25193', '2014-06-27 07:37:22', '2014-06-27 07:37:22');
-INSERT INTO "Bodega" VALUES (2, 'renca la lleva', '23884', '2014-06-27 07:37:56', '2014-06-27 07:37:56');
-INSERT INTO "Bodega" VALUES (3, 'central', '8824', '2014-06-27 07:38:37', '2014-06-27 07:38:47');
+COPY "Bodega" ("Id", "Nombre_Bodega", "Codigo_Bodega", created_at, updated_at) FROM stdin;
+1	puente asalto	25193	2014-06-27 07:37:22	2014-06-27 07:37:22
+2	renca la lleva	23884	2014-06-27 07:37:56	2014-06-27 07:37:56
+4	legua york	2331	2014-06-27 20:04:02	2014-06-27 20:04:02
+5	la piojera	2773	2014-06-27 21:22:29	2014-06-27 21:22:29
+\.
 
 
 --
 -- Name: Bodega_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('"Bodega_Id_seq"', 3, true);
+SELECT pg_catalog.setval('"Bodega_Id_seq"', 5, true);
 
 
 --
 -- Data for Name: Producto; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-INSERT INTO "Producto" VALUES (1, 'pañal bebes', '38923', '2300', 1, '2014-06-27 07:40:04', '2014-06-27 07:40:04');
-INSERT INTO "Producto" VALUES (2, 'comida de ratones', '138831-A', '$5000', 1, '2014-06-27 07:41:20', '2014-06-27 07:41:46');
-INSERT INTO "Producto" VALUES (3, 'báltica', '3884', '$50', 1, '2014-06-27 07:42:17', '2014-06-27 07:42:17');
-INSERT INTO "Producto" VALUES (4, 'salsa de camion', '1231', '$4500', 2, '2014-06-27 09:55:14', '2014-06-27 09:55:14');
-INSERT INTO "Producto" VALUES (5, 'cereal de tornillos', '32242', '$1000', 2, '2014-06-27 09:56:10', '2014-06-27 09:56:10');
+COPY "Producto" ("Id", "Nombre_Producto", "Codigo_Producto", "Precio_Neto", "FK_Bodega_Id", created_at, updated_at) FROM stdin;
+1	pañal bebes	38923	2300	1	2014-06-27 07:40:04	2014-06-27 07:40:04
+2	comida de ratones	138831-A	$5000	1	2014-06-27 07:41:20	2014-06-27 07:41:46
+3	báltica	3884	$50	1	2014-06-27 07:42:17	2014-06-27 07:42:17
+4	salsa de camion	1231	$4500	2	2014-06-27 09:55:14	2014-06-27 09:55:14
+5	cereal de tornillos	32242	$1000	2	2014-06-27 09:56:10	2014-06-27 09:56:10
+8	polvo de guarén	12331	$500	1	2014-06-27 16:29:18	2014-06-27 16:29:18
+11	mani salado	32442	$200	2	2014-06-27 19:51:58	2014-06-27 19:51:58
+12	bebe dragón	12131	$25000	2	2014-06-27 19:52:55	2014-06-27 19:52:55
+13	cocina americana	23131	$600000	2	2014-06-27 19:56:05	2014-06-27 19:56:05
+14	bigtime sabor piedra	21333	$250	4	2014-06-27 20:08:12	2014-06-27 20:08:12
+15	bigtime sabor ventana	21332	$250	4	2014-06-27 20:21:13	2014-06-27 21:19:11
+\.
 
 
 --
 -- Name: Producto_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('"Producto_Id_seq"', 5, true);
+SELECT pg_catalog.setval('"Producto_Id_seq"', 15, true);
 
 
 --
 -- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: admin
 --
 
-INSERT INTO migrations VALUES ('2014_06_27_033734_create_bodega_table', 1);
-INSERT INTO migrations VALUES ('2014_06_27_033800_create_producto_table', 1);
+COPY migrations (migration, batch) FROM stdin;
+2014_06_27_033734_create_bodega_table	1
+2014_06_27_033800_create_producto_table	1
+\.
 
 
 --
